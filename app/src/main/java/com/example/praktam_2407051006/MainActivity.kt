@@ -149,7 +149,7 @@ fun HabitItem(habit: Habit) {
                     )
                 }
             }
-
+//update
             Column(modifier = Modifier.padding(12.dp)) {
 
                 Text(
