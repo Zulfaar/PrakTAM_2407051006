@@ -6,9 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -20,6 +17,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +38,9 @@ data class Habit(
 
 val habitList = listOf(
     Habit("Minum Air", "Minum 8 gelas air setiap hari.", R.drawable.minum_air),
-    Habit("Olahraga", "Olahraga 30 menit.", R.drawable.olahraga),
-    Habit("Tidur Cukup", "Tidur 7-8 jam.", R.drawable.tidur),
-    Habit("Makan Sehat", "Perbanyak sayur.", R.drawable.makan)
+    Habit("Olahraga", "Olahraga 30 menit setiap hari.", R.drawable.olahraga),
+    Habit("Tidur Cukup", "Tidur 7-8 jam setiap malam.", R.drawable.tidur),
+    Habit("Makan Sehat", "Perbanyak sayur dan buah.", R.drawable.makan)
 )
 
 @Composable
@@ -49,7 +49,7 @@ fun HealthyHabitScreen() {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
 
 
@@ -61,12 +61,14 @@ fun HealthyHabitScreen() {
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             Text(
                 text = "Rekomendasi Habit",
                 fontWeight = FontWeight.Bold
             )
+
+            Spacer(modifier = Modifier.height(8.dp))
 
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -147,8 +149,6 @@ fun HabitItem(habit: Habit) {
                     )
                 }
             }
-
-            Spacer(modifier = Modifier.height(10.dp))
 
             Column(modifier = Modifier.padding(12.dp)) {
 
